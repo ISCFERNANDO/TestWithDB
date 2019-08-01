@@ -179,5 +179,3 @@ DELIMITER ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-07-31 23:07:22
-CREATE USER 'luis'@'localhost' IDENTIFIED BY 'luis123';
-GRANT ALL PRIVILEGES ON botanasplebes.* TO 'luis'@'localhost';
