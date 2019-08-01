@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Import dump data;
           command: |
-            mysql -h 127.0.0.1 -u root -luis123 botanasplebes < sql-data/dummy.sql
+            mysql -h 127.0.0.1 -u root -luis123 botanasplebes < sql-data/dump.sql
 
       - run:
           name: Run an example query
