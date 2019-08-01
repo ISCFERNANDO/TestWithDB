@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.11.0
-      - image: circleci/mysql:[TAG]
+      - image: circleci/mysql:8.0.4
         environment:
           MYSQL_ROOT_PASSWORD: luis123
           MYSQL_DATABASE: botanasplebes
