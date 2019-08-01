@@ -37,10 +37,18 @@ jobs:
             done
             echo Failed waiting for MySQL && exit 1
       - run:
-          name: Install MySQL CLI; Import dummy data; run an example query
+          name: Install MySQL CLI;
           command: |
             sudo apt-get install default-mysql-client
+
+      - run:
+          name: Import dump data;
+          command: |
             mysql -h 127.0.0.1 -u luis -luis123 botanasplebes < sql-data/dummy.sql
+            
+      - run:
+          name: Run an example query
+          command: |
             mysql -h 127.0.0.1 -u luis -luis123 --execute="SELECT * FROM botanasplebes.gastos"
 
       - run: npm install
