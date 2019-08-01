@@ -44,12 +44,12 @@ jobs:
       - run:
           name: Import dump data;
           command: |
-            mysql -h 127.0.0.1 -u root -luis123 botanasplebes < sql-data/dump.sql
+            mysql -h 127.0.0.1 -u root -p luis123 botanasplebes < sql-data/dump.sql
 
       - run:
           name: Run an example query
           command: |
-            mysql -h 127.0.0.1 -u root -luis123 --execute="SELECT * FROM botanasplebes.gastos"
+            mysql -h 127.0.0.1 -u root -p luis123 --execute="SELECT * FROM botanasplebes.gastos"
 
       - run: npm install
 
