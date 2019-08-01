@@ -1,0 +1,183 @@
+CREATE DATABASE  IF NOT EXISTS `botanasplebes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `botanasplebes`;
+-- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+--
+-- Host: 127.0.0.1    Database: botanasplebes
+-- ------------------------------------------------------
+-- Server version	5.5.38
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `gastos`
+--
+
+DROP TABLE IF EXISTS `gastos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gastos` (
+  `idgasto` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` text NOT NULL,
+  `gastado` double(10,2) NOT NULL,
+  `fecha_gasto` varchar(50) NOT NULL,
+  PRIMARY KEY (`idgasto`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gastos`
+--
+
+LOCK TABLES `gastos` WRITE;
+/*!40000 ALTER TABLE `gastos` DISABLE KEYS */;
+INSERT INTO `gastos` VALUES (1,'SE GASTO EN COMPRAR LA CERVEZA',3711.00,'15/03/2017'),(2,'1 KILO DE CAMARON ',224.00,'17/03/2017'),(3,'VERDURA Y SALSA',360.00,'17/03/2017'),(4,'TOSTADAS',57.00,'17/03/2017'),(5,'SALSAS, PLATOS, LIMONES, SAL',270.00,'17/03/2017'),(6,'VERDURA\nMARISCOS\nPLASTICOS\nTOSTADAS\nGASOLINA\nSPOT',1321.00,'18/03/2017'),(7,'AGUACATES',20.00,'18/03/2017'),(8,'TOSTADAS\nMARISCOS\nTOSTADAS\nBAÑO\nCATSUP',987.00,'19/03/2017'),(9,'CUCHILLOS',90.00,'19/03/2017'),(10,'QUESO	',24.00,'19/03/2017'),(11,'BOLSAS\nPLATOS\nBOTELLAS INDIO\nTOSTADAS\nLAVADA DEL CARRO\nGASOLINA\nVERDURA\nCAMARÓN\nJAVÓN\nPERIFONEO',1250.00,'24/03/2017'),(12,'CAMARÓN\nVERDURA\nAGUAS\nPERIFONEO\nPLASTICOS\nGASOLINA\nTOSTADAS',1240.00,'25/03/2017'),(13,'CAMARÓN\nVERDURA\nAGUCATES\nJAVÓN Y BOLSAS\nDESAYUNO\nTOSTADAS',675.00,'26/03/2017'),(14,'VASOS\nSALSAS\nTOSTADAS Y TOTOPOS',222.00,'31/03/2017'),(15,'CERVEZA',1726.00,'31/03/2017'),(16,'CERVEZA',1314.00,'01/04/2017'),(18,'CAMARON Y VERDURA',900.00,'01/04/2017');
+/*!40000 ALTER TABLE `gastos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `producto`
+--
+
+DROP TABLE IF EXISTS `producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `producto` (
+  `idproducto` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` text NOT NULL,
+  `tipoproducto` varchar(100) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `stock` varchar(50) NOT NULL,
+  PRIMARY KEY (`idproducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `producto`
+--
+
+LOCK TABLES `producto` WRITE;
+/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
+INSERT INTO `producto` VALUES (1,'TIRITAS','INDIVIDUAL','BOTANA',45.00,''),(2,'CAMARÓN','INDIVIDUAL','BOTANA',65.00,''),(3,'MARLIN','INDIVIDUAL','BOTANA',45.00,''),(4,'CAMPECHANA','INDIVIDUAL','BOTANA',65.00,''),(5,'MIXTA','INDIVIDUAL','BOTANA',65.00,''),(6,'TIRITAS','ORDEN','BOTANA',145.00,''),(7,'CAMARÓN','ORDEN','BOTANA',175.00,''),(8,'CAMPECHANA','ORDEN','BOTANA',175.00,''),(9,'MARLIN','ORDEN','BOTANA',145.00,''),(10,'MIXTA','ORDEN','BOTANA',175.00,''),(11,'TIRITAS','TOSTADA','BOTANA',15.00,''),(12,'CAMARÓN','TOSTADA','BOTANA',20.00,''),(13,'CAMPECHANA','TOSTADA','BOTANA',20.00,''),(14,'MARLIN','TOSTADA','BOTANA',15.00,''),(15,'MIXTA','TOSTADA','BOTANA',20.00,''),(16,'TECATE L','LATA','BEBIDA',15.00,''),(17,'TECATE','BOTELLA','BEBIDA',15.00,''),(18,'STRONGBOW','BOTELLA','BEBIDA',18.00,''),(19,'XX','BOTELLA','BEBIDA',18.00,''),(20,'BOHEMIA','BOTELLA','BEBIDA',17.00,''),(21,'HEINEKEN','BOTELLA','BEBIDA',20.00,''),(22,'CLAMATO','EL VASO','BEBIDA',10.00,''),(23,'AGUA','BOTE','BEBIDA',10.00,''),(24,'TECATE','EL SIX','BEBIDA',80.00,''),(25,'PULPO','INDIVIDUAL','BOTANA',65.00,''),(26,'PULPO','ORDEN','BOTANA',175.00,''),(27,'PULPO','TOSTADA','BOTANA',20.00,'');
+/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trabajadores`
+--
+
+DROP TABLE IF EXISTS `trabajadores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trabajadores` (
+  `idtrabajador` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`idtrabajador`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trabajadores`
+--
+
+LOCK TABLES `trabajadores` WRITE;
+/*!40000 ALTER TABLE `trabajadores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trabajadores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuarios` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `tipousuario` varchar(50) NOT NULL,
+  PRIMARY KEY (`idusuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'RojeruSan','nose1234','ADMINISTRADOR'),(2,'User','12345678','NORMAL');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ventas`
+--
+
+DROP TABLE IF EXISTS `ventas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ventas` (
+  `idventa` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `total` double(10,2) NOT NULL,
+  `fecha` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ventas`
+--
+
+LOCK TABLES `ventas` WRITE;
+/*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
+INSERT INTO `ventas` VALUES (1,17,2,30.00,'19/03/2017'),(2,12,12,240.00,'19/03/2017'),(2,16,1,15.00,'19/03/2017'),(3,16,2,30.00,'19/03/2017'),(3,23,1,10.00,'19/03/2017'),(3,4,1,65.00,'19/03/2017'),(4,8,1,175.00,'19/03/2017'),(5,11,4,60.00,'19/03/2017'),(5,12,3,60.00,'19/03/2017'),(5,13,3,60.00,'19/03/2017'),(5,14,1,15.00,'19/03/2017'),(5,17,1,15.00,'19/03/2017'),(6,24,3,240.00,'19/03/2017'),(6,16,4,60.00,'19/03/2017'),(7,6,1,145.00,'19/03/2017'),(8,8,1,175.00,'19/03/2017'),(9,4,1,65.00,'19/03/2017'),(10,19,6,90.00,'19/03/2017'),(10,1,2,90.00,'19/03/2017'),(10,4,2,130.00,'19/03/2017'),(10,18,1,18.00,'19/03/2017'),(10,23,1,10.00,'19/03/2017'),(11,3,1,45.00,'19/03/2017'),(11,23,2,20.00,'19/03/2017'),(12,16,1,15.00,'19/03/2017'),(13,21,5,100.00,'19/03/2017'),(14,16,1,15.00,'19/03/2017'),(15,23,1,10.00,'19/03/2017'),(16,16,1,15.00,'19/03/2017'),(17,16,1,15.00,'19/03/2017'),(17,17,1,15.00,'19/03/2017'),(18,21,2,40.00,'19/03/2017'),(19,19,1,15.00,'24/03/2017'),(20,16,8,120.00,'24/03/2017'),(20,1,1,45.00,'24/03/2017'),(21,16,5,75.00,'24/03/2017'),(21,21,1,20.00,'24/03/2017'),(21,10,1,175.00,'24/03/2017'),(22,20,1,17.00,'24/03/2017'),(22,10,1,175.00,'24/03/2017'),(22,23,2,20.00,'24/03/2017'),(22,16,3,45.00,'24/03/2017'),(23,23,1,10.00,'24/03/2017'),(23,16,1,15.00,'24/03/2017'),(23,2,1,65.00,'24/03/2017'),(23,1,1,45.00,'24/03/2017'),(24,4,1,65.00,'24/03/2017'),(24,16,1,15.00,'24/03/2017'),(25,16,2,30.00,'24/03/2017'),(26,2,2,130.00,'24/03/2017'),(26,1,3,135.00,'24/03/2017'),(26,6,1,145.00,'24/03/2017'),(26,16,1,15.00,'24/03/2017'),(27,16,1,15.00,'24/03/2017'),(28,24,1,80.00,'25/03/2017'),(29,7,1,175.00,'25/03/2017'),(30,7,1,175.00,'25/03/2017'),(30,23,1,10.00,'25/03/2017'),(30,11,1,15.00,'25/03/2017'),(31,12,3,60.00,'25/03/2017'),(31,27,3,60.00,'25/03/2017'),(32,24,1,80.00,'25/03/2017'),(33,9,1,145.00,'25/03/2017'),(33,23,1,10.00,'25/03/2017'),(33,16,1,15.00,'25/03/2017'),(34,16,6,90.00,'25/03/2017'),(34,12,2,40.00,'25/03/2017'),(35,16,3,45.00,'25/03/2017'),(35,4,1,65.00,'25/03/2017'),(36,17,9,135.00,'25/03/2017'),(37,14,1,15.00,'25/03/2017'),(37,27,1,20.00,'25/03/2017'),(37,17,2,30.00,'25/03/2017'),(37,5,1,65.00,'25/03/2017'),(38,17,1,15.00,'25/03/2017'),(38,21,1,20.00,'25/03/2017'),(39,23,1,10.00,'25/03/2017'),(40,2,4,260.00,'25/03/2017'),(40,1,5,225.00,'25/03/2017'),(41,8,1,175.00,'25/03/2017'),(42,2,1,65.00,'25/03/2017'),(42,25,1,65.00,'25/03/2017'),(43,17,2,30.00,'25/03/2017'),(44,17,12,180.00,'25/03/2017'),(45,23,1,10.00,'26/03/2017'),(46,19,4,60.00,'26/03/2017'),(47,1,1,45.00,'25/03/2017'),(48,16,2,30.00,'26/03/2017'),(49,1,2,90.00,'26/03/2017'),(49,23,1,10.00,'26/03/2017'),(50,7,1,175.00,'26/03/2017'),(50,6,1,145.00,'26/03/2017'),(51,6,1,145.00,'26/03/2017'),(51,8,1,175.00,'26/03/2017'),(52,2,1,65.00,'26/03/2017'),(52,25,1,65.00,'26/03/2017'),(53,16,3,45.00,'26/03/2017'),(54,17,1,15.00,'26/03/2017'),(55,24,4,320.00,'26/03/2017'),(55,2,1,65.00,'26/03/2017'),(55,17,1,15.00,'26/03/2017'),(55,23,1,10.00,'26/03/2017'),(55,20,2,34.00,'26/03/2017'),(56,1,2,90.00,'26/03/2017'),(56,2,2,130.00,'26/03/2017'),(56,4,1,65.00,'26/03/2017'),(57,17,2,30.00,'26/03/2017'),(58,16,1,15.00,'26/03/2017'),(59,24,3,240.00,'26/03/2017'),(60,17,3,45.00,'26/03/2017'),(60,21,2,40.00,'26/03/2017'),(61,1,4,180.00,'31/03/2017'),(61,25,1,65.00,'31/03/2017'),(62,16,6,90.00,'31/03/2017'),(62,21,1,20.00,'31/03/2017'),(62,20,1,17.00,'31/03/2017'),(63,4,4,260.00,'31/03/2017'),(63,2,1,65.00,'31/03/2017'),(63,25,2,130.00,'31/03/2017'),(63,7,1,175.00,'31/03/2017'),(64,12,9,180.00,'31/03/2017'),(64,11,3,45.00,'31/03/2017'),(65,24,4,320.00,'31/03/2017'),(67,16,2,30.00,'31/03/2017'),(68,21,30,600.00,'31/03/2017'),(69,19,2,30.00,'01/04/2017'),(70,17,5,75.00,'01/04/2017'),(70,2,1,65.00,'01/04/2017'),(71,1,1,45.00,'01/04/2017'),(71,2,5,325.00,'01/04/2017'),(72,1,4,180.00,'01/04/2017'),(72,2,3,195.00,'01/04/2017'),(73,7,2,350.00,'01/04/2017'),(74,3,2,90.00,'01/04/2017'),(75,24,4,320.00,'01/04/2017'),(76,19,2,36.00,'01/04/2017'),(76,21,1,20.00,'01/04/2017'),(77,17,7,105.00,'01/04/2017'),(77,19,1,18.00,'01/04/2017'),(77,21,1,20.00,'01/04/2017'),(77,2,1,65.00,'01/04/2017'),(78,19,1,18.00,'01/04/2017'),(79,17,3,45.00,'01/04/2017'),(80,19,6,108.00,'02/04/2017'),(80,7,1,175.00,'02/04/2017'),(81,17,2,30.00,'08/04/2017'),(82,16,2,30.00,'08/04/2017'),(83,18,2,36.00,'08/04/2017'),(84,16,4,60.00,'08/04/2017'),(85,17,17,255.00,'08/04/2017'),(85,2,2,130.00,'08/04/2017'),(85,16,1,15.00,'08/04/2017'),(86,11,1,15.00,'09/04/2017'),(86,12,1,20.00,'09/04/2017'),(87,17,2,30.00,'09/04/2017'),(88,2,1,65.00,'09/04/2017'),(89,20,5,85.00,'02/06/2017'),(89,19,6,108.00,'02/06/2017'),(90,17,2,30.00,'22/09/2017'),(91,16,1,15.00,'27/01/2019'),(92,22,1,10.00,'27/01/2019'),(93,3,2,90.00,'27/01/2019'),(94,18,6,108.00,'27/01/2019'),(94,2,8,520.00,'27/01/2019'),(95,18,3,54.00,'27/01/2019'),(96,1,7,315.00,'27/01/2019'),(97,23,8,80.00,'27/01/2019'),(98,24,7,560.00,'27/01/2019'),(99,22,3,30.00,'27/01/2019'),(100,5,54,3510.00,'27/01/2019'),(101,3,9,405.00,'27/01/2019'),(102,20,4,68.00,'27/01/2019'),(103,6,9,1305.00,'27/01/2019'),(104,23,5,50.00,'28/01/2019'),(104,3,3,135.00,'28/01/2019'),(104,11,8,120.00,'28/01/2019'),(105,19,7,126.00,'28/01/2019'),(105,6,3,435.00,'28/01/2019'),(105,8,1,175.00,'28/01/2019'),(105,24,2,160.00,'28/01/2019'),(106,18,3,54.00,'28/01/2019'),(107,18,3,54.00,'28/01/2019'),(108,20,2,34.00,'28/01/2019'),(109,20,8,136.00,'28/01/2019'),(110,19,3,54.00,'28/01/2019'),(111,22,7,70.00,'28/01/2019'),(112,21,9,180.00,'28/01/2019'),(113,19,1,18.00,'28/01/2019'),(114,20,3,51.00,'28/01/2019'),(115,18,3,54.00,'28/01/2019'),(116,19,2,36.00,'28/01/2019'),(117,18,3,54.00,'28/01/2019'),(117,8,8,1400.00,'28/01/2019'),(117,24,1,80.00,'28/01/2019'),(118,18,2,36.00,'28/01/2019'),(118,24,30,2400.00,'28/01/2019'),(119,17,60,900.00,'28/01/2019'),(119,1,2,90.00,'28/01/2019'),(120,3,3,135.00,'28/01/2019'),(120,24,6,480.00,'28/01/2019'),(121,20,4,68.00,'28/01/2019'),(122,20,3,51.00,'28/01/2019'),(122,18,9,162.00,'28/01/2019'),(122,7,2,350.00,'28/01/2019'),(123,6,8,1160.00,'28/01/2019'),(124,17,14,210.00,'28/01/2019'),(124,8,25,4375.00,'28/01/2019'),(124,16,2,30.00,'28/01/2019'),(124,5,3,195.00,'28/01/2019'),(124,4,5,325.00,'28/01/2019');
+/*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'botanasplebes'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `get_gatos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_gatos`()
+BEGIN
+	SELECT idgasto as id, descripcion, gastado, fecha_gasto as fechaGasto from gastos;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-07-31 23:07:22
+CREATE USER 'luis'@'localhost' IDENTIFIED BY 'luis123';
+GRANT ALL PRIVILEGES ON botanasplebes.* TO 'luis'@'localhost';
