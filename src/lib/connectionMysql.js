@@ -12,6 +12,7 @@ function query(sqlQuery, sqlData) {
       if (err) {
         reject(err);
       }
+      connection.end();
       resolve(rows);
     });
   });
